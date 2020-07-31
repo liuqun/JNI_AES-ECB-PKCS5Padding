@@ -539,8 +539,8 @@ char * AES_128_ECB_PKCS5Padding_Decrypt(const char *in, const uint8_t* key)
     //LOGE(in);
     uint8_t *inputDesBase64=b64_decode(in,strlen(in));
     const size_t inputLength= (strlen(in) / 4) * 3;
-    uint8_t *out=malloc(inputLength);
-    memset(out,0,inputLength);
+    uint8_t *out=malloc(inputLength + 1);
+    memset(out,0,inputLength+1);
     size_t count=inputLength/16;
     if (count<=0)
     {
